@@ -23,5 +23,5 @@ func main() {
 		panic(err)
 	}
 
-	io.Copy(storage{}, resp.Body)
+	io.Copy(storage{}, resp.Body) 
 }

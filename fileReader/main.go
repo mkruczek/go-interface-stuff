@@ -6,12 +6,19 @@ import (
 )
 
 func main() {
-	filePath := os.Args[1] //check if exist
 
+	filePath := getFilePath(os.Args)
 	f, err := os.Open(filePath)
 	if err != nil {
-		panic(err)
+		// panic(err)
 	}
 
 	io.Copy(os.Stdout, f)
+}
+
+func getFilePath(args []string) string {
+	if len(args) <= 1 {
+		return "file"
+	}
+	return args[1]
 }
